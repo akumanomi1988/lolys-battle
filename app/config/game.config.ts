@@ -1,0 +1,22 @@
+export const GameConfig = {
+  // Player configuration
+  INITIAL_TAP_DAMAGE: 1,
+  INITIAL_COINS: 0,
+  INITIAL_GEMS: 0,
+  
+  // Enemy configuration
+  BASE_ENEMY_HEALTH: 10,
+  ENEMY_HEALTH_MULTIPLIER: 1.1,
+  ENEMY_COIN_MULTIPLIER: 0.5,
+  ENEMY_XP_MULTIPLIER: 0.3,
+  
+  // Level up configuration
+  BASE_XP_REQUIREMENT: 100,
+  XP_MULTIPLIER: 1.1,
+  DAMAGE_PER_LEVEL: 0.5,
+  
+  // Shop configuration
+  AUTO_CLICKER_BASE_COST: 100,
+  AUTO_CLICKER_COST_MULTIPLIER: 1.2,
+  AUTO_CLICKER_DAMAGE: 1
+};
