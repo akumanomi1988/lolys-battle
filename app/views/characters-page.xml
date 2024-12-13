@@ -1,0 +1,38 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="bg-purple-100">
+    <ActionBar title="Characters" class="bg-purple-600 text-white">
+        <NavigationButton text="Back" android.systemIcon="ic_menu_back" tap="{{ onBackButtonTap }}"/>
+    </ActionBar>
+    
+    <ScrollView>
+        <StackLayout class="p-4">
+            <!-- Selected Character Info -->
+            <StackLayout class="mb-4 p-4 bg-white rounded-lg shadow" visibility="{{ selectedCharacter ? 'visible' : 'collapsed' }}">
+                <Image src="{{ selectedCharacter.imagePath }}" height="200" stretch="aspectFit"/>
+                <Label text="{{ selectedCharacter.name }}" class="text-xl font-bold text-center"/>
+                <Label text="{{ selectedCharacter.description }}" class="text-gray-600 text-center" textWrap="true"/>
+                <Label text="Level: {{ selectedCharacter.level }}" class="text-center"/>
+                <Button text="Select Character" tap="{{ onSelectCharacter }}" 
+                        class="bg-purple-500 text-white mt-2"
+                        visibility="{{ selectedCharacter.unlocked ? 'visible' : 'collapsed' }}"/>
+                <Button text="Unlock (100 gems)" tap="{{ onUnlockCharacter }}"
+                        class="bg-purple-300 text-white mt-2"
+                        visibility="{{ !selectedCharacter.unlocked ? 'visible' : 'collapsed' }}"/>
+            </StackLayout>
+
+            <!-- Character List -->
+            <Repeater items="{{ characters }}">
+                <Repeater.itemTemplate>
+                    <GridLayout columns="auto, *" class="mb-4 p-4 bg-white rounded-lg shadow" tap="{{ $parent.onCharacterTap }}">
+                        <Image col="0" src="{{ imagePath }}" width="80" height="80" class="rounded"/>
+                        <StackLayout col="1" class="ml-4">
+                            <Label text="{{ name }}" class="font-bold"/>
+                            <Label text="{{ description }}" textWrap="true" class="text-sm text-gray-600"/>
+                            <Label text="{{ unlocked ? 'Unlocked' : 'Locked' }}" 
+                                   class="{{ unlocked ? 'text-green-600' : 'text-red-600' }}"/>
+                        </StackLayout>
+                    </GridLayout>
+                </Repeater.itemTemplate>
+            </Repeater>
+        </StackLayout>
+    </ScrollView>
+</Page>

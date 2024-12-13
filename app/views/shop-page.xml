@@ -1,0 +1,32 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="bg-purple-100">
+    <ActionBar title="Shop" class="bg-purple-600 text-white">
+        <NavigationButton text="Back" android.systemIcon="ic_menu_back" tap="{{ onBackButtonTap }}"/>
+    </ActionBar>
+    
+    <ScrollView>
+        <StackLayout class="p-4">
+            <!-- Currency Display -->
+            <GridLayout columns="*, *" class="mb-4 p-2 bg-purple-200 rounded">
+                <Label col="0" text="Coins: {{ player.coins }}" class="text-purple-800"/>
+                <Label col="1" text="Gems: {{ player.gems }}" class="text-purple-800"/>
+            </GridLayout>
+
+            <!-- Shop Items -->
+            <Repeater items="{{ shopItems }}">
+                <Repeater.itemTemplate>
+                    <GridLayout columns="auto, *, auto" class="mb-4 p-4 bg-white rounded-lg shadow">
+                        <Image col="0" src="{{ imagePath }}" width="50" height="50" class="rounded"/>
+                        <StackLayout col="1" class="ml-4">
+                            <Label text="{{ name }}" class="font-bold text-lg"/>
+                            <Label text="{{ description }}" textWrap="true" class="text-sm text-gray-600"/>
+                        </StackLayout>
+                        <Button col="2" text="Buy {{ price }} {{ currency }}" 
+                                tap="{{ $parent.onBuyItem }}" 
+                                class="bg-purple-500 text-white p-2"
+                                id="{{ id }}"/>
+                    </GridLayout>
+                </Repeater.itemTemplate>
+            </Repeater>
+        </StackLayout>
+    </ScrollView>
+</Page>

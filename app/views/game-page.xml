@@ -1,4 +1,4 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="bg-purple-100">
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="bg-purple-100" unloaded="onUnloaded">
     <ActionBar title="Loly's Battle" class="bg-purple-600 text-white" />
     
     <GridLayout rows="auto, auto, *, auto">
@@ -24,20 +24,26 @@
         </StackLayout>
 
         <!-- Main Game Area -->
-        <StackLayout row="2" class="p-4">
+        <GridLayout row="2" class="p-4">
             <!-- Enemy Health Bar -->
-            <GridLayout rows="auto" columns="*, auto" class="mb-4">
-                <Progress col="0" value="{{ currentLoly.currentHealth }}" maxValue="{{ currentLoly.maxHealth }}" 
-                         class="bg-red-200 text-red-600" />
-                <Label col="1" text="{{ currentLoly.currentHealth }}/{{ currentLoly.maxHealth }}" 
-                       class="ml-2 text-sm text-gray-600" />
-            </GridLayout>
+            <GridLayout rows="auto, *" class="w-full h-full">
+                <GridLayout row="0" columns="*, auto" class="mb-4">
+                    <Progress col="0" value="{{ healthPercentage }}" maxValue="100" 
+                             class="bg-red-200" color="#ef4444" />
+                    <Label col="1" text="{{ currentLoly.currentHealth }}/{{ currentLoly.maxHealth }}" 
+                           class="ml-2 text-sm text-gray-600" />
+                </GridLayout>
 
-            <!-- Loly Area (Tappable) -->
-            <Image src="{{ currentLoly.imagePath }}" tap="{{ onLolyTap }}" 
-                   class="w-64 h-64 rounded-lg mx-auto" stretch="aspectFit" />
-            <Label text="{{ currentLoly.name }} Lvl.{{ currentLoly.level }}" class="text-xl font-bold text-center mt-2" />
-        </StackLayout>
+                <!-- Loly Area (Tappable) -->
+                <StackLayout row="1" class="text-center">
+                    <Image src="{{ currentLoly.imagePath }}" tap="{{ onLolyTap }}" 
+                           class="w-64 h-64 rounded-lg mx-auto" stretch="aspectFit" />
+                    <Label text="{{ currentLoly.name }} Lvl.{{ currentLoly.level }}" 
+                           class="text-xl font-bold mt-2" />
+                    <Label text="Tap Damage: {{ formattedDamage }}" class="text-sm text-gray-600" />
+                </StackLayout>
+            </GridLayout>
+        </GridLayout>
 
         <!-- Bottom Menu -->
         <GridLayout row="3" columns="*, *, *" class="bg-purple-200 p-2">

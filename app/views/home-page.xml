@@ -1,0 +1,27 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="bg-purple-100">
+    <ActionBar title="Loly's Battle" class="bg-purple-600 text-white"/>
+    
+    <GridLayout rows="*, auto">
+        <!-- Main Content -->
+        <StackLayout row="0" class="p-8 text-center">
+            <!-- Game Logo -->
+            <Image src="~/assets/logo/lolys-battle-logo.png" width="300" height="120" class="mb-8"/>
+            
+            <!-- Main Menu Buttons -->
+            <Button text="Start Game" tap="{{ onStartGame }}" 
+                    class="btn btn-primary w-3/4 mb-4"/>
+            
+            <Button text="Characters" tap="{{ onCharacters }}" 
+                    class="btn btn-secondary w-3/4 mb-4"/>
+            
+            <Button text="Shop" tap="{{ onShop }}" 
+                    class="btn btn-secondary w-3/4 mb-4"/>
+            
+            <Button text="Settings" tap="{{ onSettings }}" 
+                    class="btn btn-secondary w-3/4"/>
+        </StackLayout>
+        
+        <!-- Version Info -->
+        <Label row="1" text="v1.0.0" class="text-center text-gray-500 p-4"/>
+    </GridLayout>
+</Page>

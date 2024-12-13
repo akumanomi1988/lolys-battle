@@ -1,0 +1,22 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="bg-purple-900">
+    <GridLayout>
+        <StackLayout class="text-center" verticalAlignment="center">
+            <!-- Company Logo -->
+            <Image src="~/assets/logo/kawaii-games-logo.png" width="200" height="200" class="mb-4"/>
+            
+            <!-- Company Name -->
+            <Label text="Kawaii Games" class="text-4xl font-bold text-pink-300 mb-2"/>
+            <Label text="presents" class="text-xl text-purple-300 mb-8"/>
+            
+            <!-- Game Logo -->
+            <Image src="~/assets/logo/lolys-battle-logo.png" width="250" height="100" class="mb-4"/>
+            
+            <!-- Loading Animation -->
+            <GridLayout rows="auto" columns="auto,auto,auto" class="mt-4">
+                <Label col="0" text="." class="text-3xl text-pink-300 loading-dot-1"/>
+                <Label col="1" text="." class="text-3xl text-pink-300 loading-dot-2"/>
+                <Label col="2" text="." class="text-3xl text-pink-300 loading-dot-3"/>
+            </GridLayout>
+        </StackLayout>
+    </GridLayout>
+</Page>

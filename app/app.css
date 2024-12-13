@@ -1,3 +1,51 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Loading Animation */
+.loading-dot-1 {
+    animation: loadingDot 1s infinite;
+}
+
+.loading-dot-2 {
+    animation: loadingDot 1s infinite;
+    animation-delay: 0.2s;
+}
+
+.loading-dot-3 {
+    animation: loadingDot 1s infinite;
+    animation-delay: 0.4s;
+}
+
+@keyframes loadingDot {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* General Styles */
+.page {
+    background-color: #f3e8ff;
+}
+
+.action-bar {
+    background-color: #7c3aed;
+    color: white;
+}
+
+.btn {
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #7c3aed;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #9333ea;
+    color: white;
+}

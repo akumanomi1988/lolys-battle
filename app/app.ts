@@ -1,3 +1,3 @@
 import { Application } from '@nativescript/core';
 
-Application.run({ moduleName: 'views/game-page' });
+Application.run({ moduleName: 'views/splash-page' });

@@ -1,0 +1,40 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="bg-purple-100">
+    <ActionBar title="Settings" class="bg-purple-600 text-white">
+        <NavigationButton text="Back" android.systemIcon="ic_menu_back" tap="{{ onBackButtonTap }}"/>
+    </ActionBar>
+    
+    <ScrollView>
+        <StackLayout class="p-4">
+            <!-- Sound Settings -->
+            <Label text="Sound" class="text-lg font-bold mb-2"/>
+            <GridLayout columns="*, auto" class="mb-4">
+                <Label text="Sound Effects" col="0"/>
+                <Switch checked="{{ soundEnabled }}" col="1" tap="{{ onSoundToggle }}"/>
+            </GridLayout>
+            
+            <!-- Music Settings -->
+            <GridLayout columns="*, auto" class="mb-4">
+                <Label text="Background Music" col="0"/>
+                <Switch checked="{{ musicEnabled }}" col="1" tap="{{ onMusicToggle }}"/>
+            </GridLayout>
+            
+            <!-- Notifications -->
+            <Label text="Notifications" class="text-lg font-bold mb-2"/>
+            <GridLayout columns="*, auto" class="mb-4">
+                <Label text="Push Notifications" col="0"/>
+                <Switch checked="{{ notificationsEnabled }}" col="1" tap="{{ onNotificationsToggle }}"/>
+            </GridLayout>
+            
+            <!-- Account -->
+            <Label text="Account" class="text-lg font-bold mb-2"/>
+            <Button text="Reset Progress" tap="{{ onResetProgress }}" class="bg-red-500 text-white mb-2"/>
+            <Button text="Restore Purchases" tap="{{ onRestorePurchases }}" class="bg-purple-500 text-white mb-2"/>
+            
+            <!-- About -->
+            <Label text="About" class="text-lg font-bold mb-2"/>
+            <Label text="Version 1.0.0" class="mb-2"/>
+            <Button text="Privacy Policy" tap="{{ onPrivacyPolicy }}" class="bg-gray-500 text-white mb-2"/>
+            <Button text="Terms of Service" tap="{{ onTermsOfService }}" class="bg-gray-500 text-white mb-2"/>
+        </StackLayout>
+    </ScrollView>
+</Page>
